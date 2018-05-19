@@ -58,10 +58,6 @@ public class DealOrNoDeal {
         }
         return Cases;
     }
-    /*public static boolean[] SelectedValues() {
-        SelectedValues[SelectCase()] = true;
-        return SelectedValues;
-    }*/
     public static int[] Values(boolean[] SelectedValues, int[] Cases) {
         int x;
         int Values[] = {1, 5, 10, 15, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000};
@@ -107,8 +103,12 @@ public class DealOrNoDeal {
             if (Values[i] != 0) {
                 x++;
             }
-        }    
-        return (int)((Offer/x)*0.70);
+        }
+        if (x == 1) {
+            return Offer;
+        } else {
+            return (int)((Offer/x)*0.75);
+        }
     }
     public static void game(int UserCase, int[] Cases) {
         int CountBank = 0;
@@ -120,71 +120,73 @@ public class DealOrNoDeal {
             CountBank++;
             switch (CountBank) {
                 case 7:
-                    System.out.println("The bank offers: "+(int)(Banking(Values(SelectedValues, Cases))*0.50));
+                    System.out.println("The bank offers: $"+(int)(Banking(Values(SelectedValues, Cases))*0.50));
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+(int)Banking(Values(SelectedValues, Cases))*0.50);
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+(int)Banking(Values(SelectedValues, Cases))*0.50);
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 13:
-                    System.out.println("The bank offers: "+Banking(Values(SelectedValues, Cases))*0.60);
+                    System.out.println("The bank offers: $"+(int)(Banking(Values(SelectedValues, Cases))*0.60));
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+Banking(Values(SelectedValues, Cases))*0.60);
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+(int)(Banking(Values(SelectedValues, Cases))*0.60));
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 17:
-                    System.out.println("The bank offers: "+(int)Banking(Values(SelectedValues, Cases))*0.70);
+                    System.out.println("The bank offers: $"+(int)Banking(Values(SelectedValues, Cases))*0.70);
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+Banking(Values(SelectedValues, Cases))*0.70);
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+(int)(Banking(Values(SelectedValues, Cases))*0.70));
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 20:
-                    System.out.println("The bank offers: "+Banking(Values(SelectedValues, Cases))*0.80);
+                    System.out.println("The bank offers: $"+(int)(Banking(Values(SelectedValues, Cases))*0.80));
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+Banking(Values(SelectedValues, Cases))*0.80);
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+(int)(Banking(Values(SelectedValues, Cases))*0.80));
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 22:
-                    System.out.println("The bank offers: "+Banking(Values(SelectedValues, Cases))*0.90);
+                    System.out.println("The bank offers: $"+(int)(Banking(Values(SelectedValues, Cases))*0.90));
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+Banking(Values(SelectedValues, Cases))*0.90);
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+(int)(Banking(Values(SelectedValues, Cases))*0.90));
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 23:
-                    System.out.println("The bank offers: "+Banking(Values(SelectedValues, Cases)));
+                    System.out.println("The bank offers: $"+Banking(Values(SelectedValues, Cases)));
                     System.out.println("Deal Or NoDeal?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
                     if (Deal) {
-                        System.out.println("You won: "+Banking(Values(SelectedValues, Cases)));
-                        System.out.println("Your original case had: "+Cases[UserCase]);
+                        System.out.println("You won: $"+Banking(Values(SelectedValues, Cases)));
+                        System.out.println("Your original case had: $"+Cases[UserCase]);
                     }
                     break;
                 case 24:
                     System.out.println("Do you want to change your case?");
                     while (!K.hasNextBoolean())K.next();
                     Deal = K.nextBoolean();
-                    if (Deal) {
-                        System.out.println("You won: "+Cases[UserCase]);
+                    if (!Deal) {
+                        System.out.println("You won: $"+Cases[UserCase]);
+                    } else {
+                        System.out.println("You won: $"+Banking(Values(SelectedValues, Cases)));
                     }
                     break;
                 default:
@@ -192,3 +194,4 @@ public class DealOrNoDeal {
             }
         }
     }
+}
