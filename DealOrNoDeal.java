@@ -4,9 +4,16 @@ import java.util.*;
  * @author LuiggiFernandez
  */
 public class DealOrNoDeal {
-    static Scanner K = new Scanner(System.in);
-    static boolean SelectedValues[] = new boolean [26];
-    public static int SelectInitCase() {
+
+/**
+* Deal Or NoDeal is a game about decision making and strategy, to get the maximum profit
+* by selecting an initial case and then negotiating with the bank to get money, this game
+* depends on luck and a good strategy from the player.
+*/
+
+    static Scanner K = new Scanner(System.in); //UserInput
+    static boolean SelectedValues[] = new boolean [26];  //CasesSelectedByUserDuringGame
+    public static int SelectInitCase() { //Intro  and CaseSelect
         System.out.println(" /$$$$$$$                      /$$        /$$$$$$                  /$$   /$$           /$$$$$$$                      /$$\n" +
                            "| $$__  $$                    | $$       /$$__  $$                | $$$ | $$          | $$__  $$                    | $$\n" +
                            "| $$  \\ $$  /$$$$$$   /$$$$$$ | $$      | $$  \\ $$  /$$$$$$       | $$$$| $$  /$$$$$$ | $$  \\ $$  /$$$$$$   /$$$$$$ | $$\n" +
